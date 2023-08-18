@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+   <head>
+    <title> Program 1</title>
+</head>
+<body>
+   <h1><centre>Experiment No 1 : Prashant Tiwari (404C058) </centre></h1>
+   <h2>Area of Rectangle : </h2>
+   <label>Enter Length : </label>
+   <input type="text" id="Length"><br><br>
+   <label>Enter Breadth : </label>
+   <input type="text" id="Breadth"><br><br>
+   <centre><button type="submit" onclick="rectArea()">Calculate</button></centre>
+   <h3 id="rectO">Area of Rectangle is ? </h3>
+
+   <h2>Area of Triangle : </h2>
+   <label>Enter Base : </label>
+   <input type="text" id="Base"><br><br>
+   <label>Enter Height : </label>
+   <input type="text" id="Height"><br><br>
+   <centre><button type="submit" onclick="triArea()">Calculate</button></centre>
+   <h3 id="triO">Area of Triangle is ? </h3>
+
+   <h2>Area of Circle : </h2>
+   <label>Enter Radius : </label>
+   <input type="text" id="Radius"><br><br>
+   <centre><button type="submit" onclick="CircleArea()">Calculate</button></centre>
+   <h3 id="CircleO">Area of Circle is ? </h3>
+
+   <script >
+      function rectArea(){
+    var l= parseFloat(document.getElementById("Length").value);
+    var b= parseFloat(document.getElementById("Breadth").value);
+    var areaR=(l)*(b);
+    document.getElementById("rectO").innerHTML ="Area of Rectangle is = " + areaR;
+}
+
+function triArea(){
+    var b= parseFloat(document.getElementById("Base").value);
+    var h= parseFloat(document.getElementById("Height").value);
+    var areaT=0.5*(b)*(h);
+    document.getElementById("triO").innerHTML ="Area of Triangle is = " + areaT;
+}
+
+function CircleArea(){
+    var r= parseFloat(document.getElementById("Radius").value);
+    var areaC=Math.PI*(r)*(r);
+    document.getElementById("CircleO").innerHTML ="Area of Circle is = " + areaC;
+}
+
+   </script>
+
+
+</body>
+
+</html>
