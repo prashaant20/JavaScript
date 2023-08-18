@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Program 3</title>
+    </head>
+<body>
+
+<h1>Experiment No 3 </h1>
+<hr><br>
+
+<Label>Enter a String:</label>
+
+<input type="text" id="myString" name="myString" ><br><br>
+
+<hr>
+<!-- Reversing Strings -->
+
+<h2>I. String Reversed  Using For Loop, Recursive Functions And Built-in Functions.</h2>
+
+<button type="submit" onclick="ReverseString1for()">Reverse Using For Loop</button>
+<p id="reverse1">String Reversed Using For Loop : ?</p>
+
+<button type="submit" onclick="ReverseString2Rec()">Reverse Using Recursive Function</button>
+<p id="reverse2">String Reversed Using Recursive Function : ?</p>
+
+<button type="submit" onclick="ReverseString3Bui()">Reverse Using Built-in Function</button>
+<p id="reverse3">String Reversed Using Built-in Function : ?</p>
+<hr>
+
+<!-- Replacing Character -->
+
+<h2>II. Replace Character Using replace() And replaceAll() Methods.</h2>
+
+<!-- Using replace() Method -->
+
+<h4>1. Replacing Character using replace() Method : </h4>
+
+<Label>Enter the character to replace:</Label>
+
+<input type="text" id="myChar" name="myChar"><br><br>
+
+<label>Enter the character to replace with:</label>
+
+<input type="text" id="myNewChar" name="myNewChar"><br><br>
+
+<button type ="submit" onclick="myFunction()">Replace Character Using replace() Method</button>
+<p id="replace">Character Replaced Using replace() Method : ? </p>
+
+<!-- Using replaceAll() Method -->
+
+<h4>2. Replacing Character using replaceAll() Method : </h4>
+
+<button type ="submit" onclick="myFunc()">Replace Character Using replaceAll() Method</button>
+<p id="replaceAll">Character Replaced Using replaceAll() Method : ? </p>
+<hr>
+
+<!-- Verifying Palindrome Or Not -->
+
+<h2>III. Verify Whether The Entered String Is Palindrome Or Not.</h2>
+
+<button onclick="isPalindrome()">Check</button>
+
+<p id="result">Entered String Is Palindrome Or Not : ?</p>
+
+
+
+<script >
+    
+// String Reversed Using For Loop
+
+function ReverseString1for() {
+    var str = document.getElementById("myString").value;
+    var reversedString = "";
+
+    for (var i = str.length - 1; i >= 0; i--) {
+      reversedString += str[i];
+    }
+    document.getElementById("reverse1").innerHTML = " String Reversed Using For Loop : " + reversedString;
+}
+
+//String Reversed Using Recursive Functions
+
+function reverseString1rec(str) {
+    if (str === "") {
+        return "";
+    } else {
+        return reverseString1rec(str.substr(1)) + str.charAt(0);
+    } 
+}
+
+function ReverseString2Rec() {
+  var str = document.getElementById("myString").value;
+  var reversedString1 = reverseString1rec(str);
+  document.getElementById("reverse2").innerHTML = " String Reversed Using Recursive Functions : " + reversedString1;
+}
+
+//String Reversed Using Built-in Functions
+
+function reverseString2bui(str) {
+    var arr = str.split("");
+    arr.reverse();
+    return arr.join("");
+}
+
+function ReverseString3Bui() {
+  var str = document.getElementById("myString").value;
+  var reversedString = reverseString2bui(str);
+  document.getElementById("reverse3").innerHTML = " String Reversed Using Built-in Functions : " + reversedString;
+}
+
+//Character Replace Using replace() Method
+
+function replaceChar(str, char, newChar) {
+    return str.replace(char, newChar);
+}
+
+function myFunction() {
+  var str = document.getElementById("myString").value;
+  var char = document.getElementById("myChar").value;
+  var newChar = document.getElementById("myNewChar").value;
+  var replacedString = replaceChar(str, char, newChar);
+  document.getElementById("replace").innerHTML= " Character Replaced Using replace() Method : "+ replacedString;
+}
+
+//Character Replace Using replaceAll() Method
+
+function replaceAllChar(str, char, newChar) {
+    return str.replaceAll(new RegExp(char, "g"), newChar);
+}
+
+function myFunc() {
+  var str = document.getElementById("myString").value;
+  var char = document.getElementById("myChar").value;
+  var newChar = document.getElementById("myNewChar").value;
+  var replacedString = replaceAllChar(str, char, newChar);
+  document.getElementById("replaceAll").innerHTML= " Character Replaced Using replaceAll() Method : "+ replacedString;
+}
+
+//Checking if the entered string is palindrome or not
+
+
+function isPalindrome() {
+  let string = document.getElementById("myString").value;
+  let reverseStr = string.split("").reverse().join("");
+  let text = "";
+
+  if (reverseStr === string) {
+      text = document.getElementById("result").innerHTML = " Entered String Is Palindrome Or Not : " + " String " +string + " Is Palindrome.";
+      return true;
+  } 
+  else {
+      text = document.getElementById("result").innerHTML = " Entered String Is Palindrome Or Not : " + " String " +string + " is not palindrome.";
+      return false;
+  }
+}
+</script>
+
+</body>
+</html>
