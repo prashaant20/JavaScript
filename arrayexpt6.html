@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Remove Array Element</title>
+</head>
+<body>
+   
+
+    <hr>
+    <h2>Remove Element from Array :</h2>
+    
+    <label for="arrayInput">Enter Array Elements (comma-separated):</label>
+    <input type="text" id="arrayInput"><br><br>
+
+    <label for="elementToRemove">Enter Element to Remove:</label>
+    <input type="text" id="elementToRemove"><br><br>
+
+    <button onclick="removeArrayElement()">Remove Element</button><br>
+
+    <p id="Rresult"></p><hr>
+
+    <h2>Check if Array Contains Value :</h2>
+    
+    <label for="elementToCheck">Enter Element to Check:</label>
+    <input type="text" id="elementToCheck"><br><br>
+
+    <button onclick="checkArrayElement()">Check Array</button><br>
+
+    <p id="Cresult"></p><hr>
+
+    <h2>Empty an Array :</h2>
+
+    <button onclick="createArray()">Create Array</button><br><br>
+
+    <button onclick="emptyArray()">Empty Array</button><br>
+
+    <p id="Eresult"></p><br><hr>
+
+    <script>
+       // Function to remove an element from an array
+
+function removeArrayElement() {
+    const arrayInput = document.getElementById("arrayInput").value;
+    const elementToRemove = document.getElementById("elementToRemove").value;
+
+    let array = arrayInput.split(",");
+
+    const index = array.indexOf(elementToRemove);
+
+    if (index !== -1) {
+        array.splice(index, 1);
+
+        document.getElementById("Rresult").textContent = "Element removed!!...Array Updated : " + array.join(", ");
+    } else {
+        document.getElementById("Rresult").textContent = "Element Not Found!";
+    }
+}
+
+// Function to check if an array contains a specified value
+
+function checkArrayElement() {
+    const arrayInput = document.getElementById("arrayInput").value;
+    const elementToCheck = document.getElementById("elementToCheck").value;
+
+    let array = arrayInput.split(",");
+
+    const index = array.indexOf(elementToCheck);
+
+    if (index !== -1) {
+        document.getElementById("Cresult").textContent = `Element "${elementToCheck}" found at index ${index} in the array.`;
+    } else {
+        document.getElementById("Cresult").textContent = "Element Not Found!";
+    }
+}
+
+
+// Declare an empty array
+let array = [];
+
+// Function to create an array from input
+function createArray() {
+    const arrayInput = document.getElementById("arrayInput").value;
+    array = arrayInput.split(",");
+
+    // Display the created array
+    displayArray();
+}
+
+// Function to empty the array
+function emptyArray() {
+    // Set the array to an empty array
+    array = [];
+
+    // Display the empty array
+    displayArray();
+}
+
+// Function to display the current state of the array
+function displayArray() {
+    const resultElement = document.getElementById("Eresult");
+
+    if (array.length === 0) {
+        resultElement.textContent = "Array is empty.";
+    } else {
+        resultElement.textContent = "Array: " + array.join(", ");
+    }
+}
+    </script>
+   
+</body>
+</html>
