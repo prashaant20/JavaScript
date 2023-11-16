@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Count Paragraph Tags</title>
+</head>
+<body>
+  
+    <h1>Count Paragraph Tags</h1>
+    <p>This is a paragraph.</p>
+    <p>Another paragraph.</p>
+    <p>Yet another paragraph.</p>
+    <p>One more paragraph.</p>
+    <p>Second last paragraph</p>
+    <p>And one last paragraph.</p>
+
+    <p id="countResult"></p>
+
+    <script>
+        // Function to count the number of paragraph tags
+function countParagraphTags() {
+    return document.getElementsByTagName("p").length;
+}
+
+const countResultElement = document.getElementById("countResult");
+countResultElement.textContent = "Number of paragraph tags: " + countParagraphTags();
+
+
+    </script>
+</body>
+</html>

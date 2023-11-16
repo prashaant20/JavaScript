@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>     
+</head>
+<body>
+   
+    <h2>Welcome to my website!</h2>
+    <p>Hover over or click on the button below to change the background color:</p>
+    <button onmouseover="changeColorOnMouseOver()" onfocus="changeColorOnFocus()">Change Color</button>
+    <script>
+        function changeColorOnMouseOver() {
+    document.body.style.backgroundColor = "pink";
+}
+function changeColorOnFocus() {
+    document.body.style.backgroundColor = "yellow";
+}
+    </script>
+</body>
+</html>

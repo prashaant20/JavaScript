@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Append Object to Array</title>
+</head>
+<body>
+
+    <h2>Append Object to Array and Check if It's an Array :</h2>
+    
+    <!-- Input for Object Fields -->
+    <label for="objectField">Enter Object Field:</label>
+    <input type="text" id="objectField"><br><br>
+
+    <!-- Input for Object Value -->
+    <label for="objectValue">Enter Object Value:</label>
+    <input type="text" id="objectValue"><br><br>
+
+    <!-- Button to Create Object -->
+    <button onclick="createObject()">Create Object</button><br><br>
+
+    <!-- Button to Append Object to Array -->
+    <button onclick="appendObjectToArray()">Append Object to Array</button><br><br>
+
+    <!-- Button to Check if Object is an Array -->
+    <button onclick="checkIsArray()">Check if Object is Array</button><br><br>
+
+    <!-- Display Result -->
+    <p id="result"></p><hr>
+
+    <script>
+        // Initialize an empty array
+let myArray = [];
+
+// Initialize an empty object
+let myObject = {};
+
+// Function to create an object from input
+function createObject() {
+    const objectField = document.getElementById("objectField").value;
+    const objectValue = document.getElementById("objectValue").value;
+
+    // Create an object with the given field and value
+    myObject[objectField] = objectValue;
+
+    // Display the created object
+    displayResult("Object Created: " + JSON.stringify(myObject));
+}
+
+// Function to append the object to the array
+function appendObjectToArray() {
+    // Append the object to the array
+    myArray.push(myObject);
+
+    // Display the array
+    displayResult("Array After Appending Object: " + JSON.stringify(myArray));
+}
+
+// Function to check if a variable is an array
+function checkIsArray() {
+    const isArray = Array.isArray(myArray);
+
+    // Display the result
+    displayResult("Is the Variable an Array? " + isArray);
+}
+
+// Function to display the result on the HTML page
+function displayResult(resultText) {
+    const resultElement = document.getElementById("result");
+    resultElement.textContent = resultText;
+}
+    </script>
+
+</body>
+</html>

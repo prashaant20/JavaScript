@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+</head>
+<body>
+    
+    <h2>Calculator</h2>
+    <div id="calculator">
+        <input type="text" id="output" placeholder="0" readonly><br><br>
+        <div id="buttons">
+            <button onclick="appendToOutput('1')">1</button>
+            <button onclick="appendToOutput('2')">2</button>
+            <button onclick="appendToOutput('3')">3</button>
+            <button onclick="appendToOutput('4')">4</button>
+            <button onclick="appendToOutput('5')">5</button><br><br>
+            <button onclick="appendToOutput('6')">6</button>
+            <button onclick="appendToOutput('7')">7</button>
+            <button onclick="appendToOutput('8')">8</button>
+            <button onclick="appendToOutput('9')">9</button>
+            <button onclick="appendToOutput('0')">0</button><br><br>
+            <button onclick="appendToOutput('+')">+</button>
+            <button onclick="appendToOutput('-')">-</button>
+            <button onclick="appendToOutput('*')">*</button>
+            <button onclick="appendToOutput('/')">/</button>
+            <button onclick="appendToOutput('%')">%</button><br><br>
+            <button onclick="calculateSquare()">x²</button>
+            <button onclick="clearOutput()">Clear</button>
+            <button onclick="calculateResult()">=</button>
+        </div>
+    </div>
+    <script>
+        let outputField = document.getElementById('output');
+
+function appendToOutput(value) {
+    outputField.value += value;
+}
+
+function calculateSquare() {
+    let inputValue = outputField.value;
+    if (!isValidInput(inputValue)) {
+        alert('Invalid input');
+    } else {
+        outputField.value = Math.pow(parseFloat(inputValue), 2);
+    }
+}
+
+function clearOutput() {
+    outputField.value = '';
+}
+
+function calculateResult() {
+    let inputValue = outputField.value;
+    if (!isValidInput(inputValue)) {
+        alert('Invalid input');
+    } else {
+        try {
+            let result = eval(inputValue);
+            outputField.value = result;
+        } catch (error) {
+            alert('Invalid input');
+        }
+    }
+}
+
+function isValidInput(input) {
+    // Validate input here (e.g., check for non-numeric characters)
+    // You can customize this function to meet your specific validation criteria.
+    return !/[^\d\+\-\*\/\%\.]/.test(input);
+}
+    </script>
+</body>
+</html>
