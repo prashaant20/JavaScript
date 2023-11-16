@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <title>Countdown Timer</title>
+    
+</head>
+<body>
+  
+    <h1>Countdown Timer</h1>
+    <h4><label for="hours">Set Timer (in hours): </label>
+    <input type="number" id="hours" min="0" placeholder="Hours"><br><br></h4>
+    <h4><label for="minutes">Minutes: </label>
+    <input type="number" id="minutes" min="0" max="59" placeholder="Minutes"><br><br></h4>
+    <h4><label for="seconds">Seconds: </label>
+    <input type="number" id="seconds" min="0" max="59" placeholder="Seconds"><br><br></h4>
+    <h4><button onclick="startTimer()">Start Timer</button></h4>
+    <br><br>
+    <h1><div id="timer"></div></h1>
+
+    <script>
+       let countdown;
+
+function startTimer() {
+    const hoursInput = parseInt(document.getElementById('hours').value) || 0;
+    const minutesInput = parseInt(document.getElementById('minutes').value) || 0;
+    const secondsInput = parseInt(document.getElementById('seconds').value) || 0;
+    const targetTime = new Date().getTime() + (hoursInput * 3600000) + (minutesInput * 60000) + (secondsInput * 1000);
+    clearInterval(countdown);
+
+    countdown = setInterval(function() {
+        const currentTime = new Date().getTime();
+        const timeRemaining = targetTime - currentTime;
+
+        if (timeRemaining <= 0) {
+            clearInterval(countdown);
+            document.getElementById('timer').innerHTML = 'Countdown expired!...Diwali Festive Offers Are Live!.... ';
+        } else {
+            const hours = Math.floor(timeRemaining / 3600000);
+            const minutes = Math.floor((timeRemaining % 3600000) / 60000);
+            const seconds = Math.floor((timeRemaining % 60000) / 1000);
+            document.getElementById('timer').innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+        }
+    }, 1000); // Update every 1 second
+} 
+    </script>
+
+</body>
+</html>
