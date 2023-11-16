@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            
+            <title>Experiment 4</title>
+        </head>
+    <body>
+
+        <h3>Compare two strings using mathematical operator</h3>
+
+        <label for="s1">Enter first string</label>
+        <input type="text" id="s1" name="s1" placeholder="Enter a string">
+        <br><br>
+
+        <label for="s2">Enter second string</label>
+        <input type="text" id="s2" name="s2" placeholder="Enter a string">
+        <br><br><hr>
+
+        <h3>Compare using mathematical operator</h3>
+        <button type="submit" onclick="compare()">Compare</button>
+        <h3 id="output1">Output - ?</h3>
+       <hr>
+
+        <h3>Compare using Strictly Equality operator</h3>
+        <button type="submit" onclick="compareEquality()">Compare</button>
+        <h3 id="output2">Output - ?</h3>
+        <hr>
+
+        <h3>Compare using match() method</h3>
+        <button type="submit" onclick="compareMatch()">Compare</button>
+        <h3 id="output3">Output - ?</h3>
+        <hr>
+
+        <h3>Compare using matchAll() method</h3>
+        <button type="submit" onclick="compareMatchAll()">Compare</button>
+        <h3 id="output4">Output - ?</h3>
+        <hr>
+
+        <h3>Compare using localeCompare() method</h3>
+        <button type="submit" onclick="compareLocaleCompare()">Compare</button>
+        <h3 id="output5">Output - ?</h3>
+
+        <script>
+            function compare() {
+    var a = document.getElementById("s1").value;
+    var b = document.getElementById("s2").value;
+    if (a == b) {
+        document.getElementById("output1").innerHTML = "OutPut - Two strings are equal"
+    }
+    else if (a > b) {
+        document.getElementById("output1").innerHTML = "OutPut - first string > second string"
+    }
+    else if (b > a) {
+        document.getElementById("output1").innerHTML = "OutPut - first string < second string"
+    }
+}
+
+function compareEquality() {
+    var a = document.getElementById("s1").value;
+    var b = document.getElementById("s2").value;
+    if (a === b) {
+        document.getElementById("output2").innerHTML = "OutPut - Two strings are equal and their data types are also equal"
+    }
+    else {
+        document.getElementById("output2").innerHTML = "OutPut - Two strings are not equal or their data types are not equal"
+    }
+}
+
+function compareMatch() {
+    var a = document.getElementById("s1").value;
+    var b = document.getElementById("s2").value;
+    let res = a.match(b);
+    document.getElementById("output3").innerHTML = "OutPut - " + res + " is at " + res.index;
+}
+
+function compareMatchAll() {
+    var a = document.getElementById("s1").value;
+    var b = document.getElementById("s2").value;
+    let res = a.matchAll(b);
+    var ans = ""
+    for (r of res) {
+        ans = ans + " " + r + " is at " + r.index + "<br>";
+    }
+        document.getElementById("output4").innerHTML = "OutPut - " + ans;
+}
+
+function compareLocaleCompare() {
+    var a = document.getElementById("s1").value;
+    var b = document.getElementById("s2").value;
+    let res = a.localeCompare(b);
+    if (res === 0) {
+        document.getElementById("output5").innerHTML = "OutPut - Two strings are equal"
+    }
+    else if (res === 1) {
+        document.getElementById("output5").innerHTML = "OutPut - first string > second string"
+    }
+    else if (res === -1) {
+        document.getElementById("output5").innerHTML = "OutPut - first string < second string"
+    }
+}
+        </script>
+    
+    </body>
+</html>
